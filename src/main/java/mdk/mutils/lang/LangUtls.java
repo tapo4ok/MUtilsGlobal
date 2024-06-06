@@ -3,6 +3,7 @@ package mdk.mutils.lang;
 import mdk.mutils.Context;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.Arrays;
 import java.util.Iterator;
 
@@ -19,7 +20,12 @@ public class LangUtls {
                     for (String str : instance.value()) {
                         lang.load(context.getClassLoader().getResourceAsStream(str));
                     }
-                    field.set(obj, lang);
+                    if (!Modifier.isStatic(Modifier.fieldModifiers())) {
+                        field.set(obj, lang);
+                    }
+                    else {
+                        field.set(null, lang);
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

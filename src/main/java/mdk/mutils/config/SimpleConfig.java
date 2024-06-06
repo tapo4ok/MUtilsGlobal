@@ -8,6 +8,7 @@ import mdk.mutils.Static;
 import java.io.*;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.net.URL;
@@ -192,7 +193,12 @@ public class SimpleConfig<T> {
                         c = Class.forName(instance.value());
                     }
 
-                    field.set(obj, SimpleConfig.class.getConstructor(Class.class, Context.class).newInstance(c, context));
+                    if (!Modifier.isStatic(Modifier.fieldModifiers())) {
+                        field.set(obj, SimpleConfig.class.getConstructor(Class.class, Context.class).newInstance(c, context));
+                    }
+                    else {
+                        field.set(null, SimpleConfig.class.getConstructor(Class.class, Context.class).newInstance(c, context));
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
