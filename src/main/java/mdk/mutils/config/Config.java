@@ -21,6 +21,4 @@ public @interface Config {
     public static @interface Instance {
         String value() default "reflection";
     }
-
-
 }

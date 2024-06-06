@@ -170,15 +170,6 @@ public class SimpleConfig<T> {
         }
     }
 
-    public static void init(Object obj) {
-        Class<?> cls = obj.getClass();
-        try {
-            init(obj, new Context((Logger) cls.getMethod("getLogger").invoke(obj), (File) cls.getMethod("getDataFolder").invoke(obj)));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     public static void init(Object obj, Context context) {
         Iterator<Field> iterator = Arrays.stream(obj.getClass().getFields()).iterator();
         while (iterator.hasNext()) {
