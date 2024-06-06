@@ -1,0 +1,5 @@
+name: ${name}
+version: '${version}'
+main: mdk.mutilsglobal.MUtilsGlobal
+load: STARTUP
+author: TaPo4oK
