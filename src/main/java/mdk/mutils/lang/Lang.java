@@ -8,6 +8,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Lang {
-    String value() default "false";
+    String[] value() default {};
     Class<? extends ILang> type() default SimpleLang.class;
 }

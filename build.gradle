@@ -3,7 +3,8 @@ plugins {
 }
 
 group = 'mdk'
-version = '0'
+version = properties.version
+
 
 repositories {
     mavenCentral()

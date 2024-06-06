@@ -16,8 +16,8 @@ public class LangUtls {
                 try {
                     ILang lang = instance.type().getConstructor().newInstance();
 
-                    if (instance.value().equalsIgnoreCase("false")) {
-                        lang.load(context.getClassLoader().getResourceAsStream(instance.value()));
+                    for (String str : instance.value()) {
+                        lang.load(context.getClassLoader().getResourceAsStream(str));
                     }
                     field.set(obj, lang);
                 } catch (Exception e) {
