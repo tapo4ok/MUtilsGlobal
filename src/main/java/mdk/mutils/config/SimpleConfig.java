@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.ToString;
 import mdk.mutils.Context;
 import mdk.mutils.Static;
+import mdk.mutils.annotations.Config;
+import mdk.mutils.annotations.Package;
 
 import java.io.*;
 
@@ -37,7 +39,7 @@ public class SimpleConfig<T> {
         name = name.toLowerCase();
         this.fileName = name;
 
-        Config.Package f2 = cls.getAnnotation(Config.Package.class);
+        Package f2 = cls.getAnnotation(Package.class);
         String packag;
         if (f2 == null) {
             packageName = null;
@@ -49,8 +51,8 @@ public class SimpleConfig<T> {
         else packag = fs.value();
         packag = packag
                 .toLowerCase()
-                .replace('.', '\\')
-                .replace('\\', '/');
+                .replace('\\', '/')
+                .replace('.', '/');
         this.packageName = packag;
 
         func_0c(context);

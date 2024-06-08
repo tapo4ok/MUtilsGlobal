@@ -1,6 +1,7 @@
 package mdk.mutils.lang;
 
 import mdk.mutils.Context;
+import mdk.mutils.annotations.Lang;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;

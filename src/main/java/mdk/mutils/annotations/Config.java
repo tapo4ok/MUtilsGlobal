@@ -1,4 +1,4 @@
-package mdk.mutils.config;
+package mdk.mutils.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -10,11 +10,6 @@ import java.lang.annotation.Target;
 public @interface Config {
     String value() default "";
     String FromResource() default "false";
-    @Target(ElementType.TYPE)
-    @Retention(RetentionPolicy.RUNTIME)
-    public static @interface Package {
-        String value() default "";
-    }
 
     @Target(ElementType.FIELD)
     @Retention(RetentionPolicy.RUNTIME)

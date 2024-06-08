@@ -6,10 +6,14 @@
         <autoDetectTypes>
           <platformType>SPIGOT</platformType>
           <platformType>BUNGEECORD</platformType>
+          <platformType>MCP</platformType>
         </autoDetectTypes>
         <projectReimportVersion>1</projectReimportVersion>
       </configuration>
     </facet>
+  </component>
+  <component name="McpModuleSettings">
+    <option name="srgType" value="SRG" />
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$/../../build/generated/sources/annotationProcessor/java/main">
