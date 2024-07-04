@@ -5,6 +5,7 @@ import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.WorldCreator;
 import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.generator.ChunkGenerator;
 
 import java.util.function.Consumer;
@@ -35,7 +36,7 @@ public class WorldUtils {
         return worldCreator.createWorld();
     }
     public static void TeleportPlayer(World world, Player player, double x, double y, double z) {
-        player.teleport(new Location(world, x, y, z));
+        player.teleport(new Location(world, x, y, z), PlayerTeleportEvent.TeleportCause.UNKNOWN);
     }
 
     public static void TeleportPlayer(World world, Player player, Location location) {

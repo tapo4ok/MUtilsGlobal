@@ -3,3 +3,10 @@ version: '${version}'
 main: mdk.mutilsglobal.MUtilsGlobal
 load: STARTUP
 author: TaPo4oK
+commands:
+  P_send:
+    permission: psend
+
+permissions:
+  psend:
+    default: op
