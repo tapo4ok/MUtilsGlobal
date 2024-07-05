@@ -1,6 +1,7 @@
 package mdk.mutils.chat;
 
 import mdk.mutils.Identifier;
+import mdk.mutils.brigadier.Text;
 import mdk.mutils.registry.Registreable;
 import mdk.mutils.registry.Registry;
 import org.bukkit.Bukkit;
@@ -101,5 +102,40 @@ public abstract class AbstractChat implements IChat, Registreable<Registry<IChat
     @Override
     public void register(Registry<IChat> REGISTRY) {
         Registry.register(REGISTRY, name, this);
+    }
+
+
+    @Override
+    public void send(Text text) {
+        String str = text.getString();
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            if (player.hasPermission(permission)) {
+                player.sendMessage(formater.format(this, str));
+            }
+        }
+    }
+
+    @Override
+    public void send(CommandSender sender, Text text) {
+        String str = text.getString();
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            if (player.hasPermission(permission)) {
+                player.sendMessage(formater.format(this, str, sender));
+            }
+        }
+    }
+
+    @Override
+    public void send(CommandSender sender, Text[] texts) {
+        for (Text text : texts) {
+            send(sender, text);
+        }
+    }
+
+    @Override
+    public void send(Text[] texts) {
+        for (Text text : texts) {
+            send(text);
+        }
     }
 }
