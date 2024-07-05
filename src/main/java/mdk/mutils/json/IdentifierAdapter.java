@@ -4,7 +4,6 @@ import com.google.gson.*;
 import mdk.mutils.Identifier;
 
 import java.lang.reflect.Type;
-
 public class IdentifierAdapter implements JsonDeserializer<Identifier>, JsonSerializer<Identifier> {
     @Override
     public Identifier deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {

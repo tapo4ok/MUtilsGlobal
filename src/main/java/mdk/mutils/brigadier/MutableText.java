@@ -43,10 +43,6 @@ public class MutableText implements Text {
     public String getString() {
         StringBuilder builder = new StringBuilder();
         getString(builder);
-        for (Text text1 : child) {
-            text1.getString(builder);
-        }
-
         return builder.toString();
     }
 
@@ -56,5 +52,9 @@ public class MutableText implements Text {
             builder.append(color);
         }
         builder.append(text);
+
+        for (Text text1 : child) {
+            text1.getString(builder);
+        }
     }
 }
